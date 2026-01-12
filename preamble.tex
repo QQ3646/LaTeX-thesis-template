@@ -37,6 +37,14 @@
 \usepackage[inkscapearea=page, inkscapeformat=png]{svg} 
 \usepackage{subcaption}
 
+% Пути к папкам с картинками (чтобы не писать img/ везде)
+\graphicspath{{img/}}
+\svgpath{{img/}}
+
+% Настройка подписей под рисунками
+\usepackage{caption}
+\captionsetup[figure]{name=Рисунок, labelsep=endash}
+
 % --- Код и алгоритмы ---
 \usepackage{algorithm}
 \usepackage{algpseudocode}
@@ -48,9 +56,27 @@
   frame=single
 }
 
+% --- Библиография ---
+\usepackage{csquotes} % Рекомендуется для biblatex
+\usepackage[
+    backend=biber,     % Используем современный движок biber
+    style=gost-numeric,% Стиль по ГОСТу (цифровой)
+    sorting=none,      % Сортировка в порядке цитирования (часто требуют в дипломах)
+    doi=true,          % Показывать DOI
+    url=true,          % Показывать URL
+    language=auto,
+    autolang=other,
+    clearlang=true
+]{biblatex}
+
+\addbibresource{bib/references.bib} % Путь к файлу с литературой
+
 % --- Гиперссылки ---
 \usepackage[unicode, colorlinks=false, hidelinks]{hyperref}
 \usepackage[all]{hypcap}
+
+% --- Дополнительные настройки ---
+\usepackage{pdfpages}
 
 \newcounter{intvl} \setcounter{intvl}{3}
 \newcounter{otstup} \setcounter{otstup}{0}

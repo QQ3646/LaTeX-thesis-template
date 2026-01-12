@@ -4,8 +4,17 @@
 
 \begin{document}
 
-\include{chapters/0-title}
+\IfFileExists{assembly/title.pdf}{
+    \includepdf{assembly/title.pdf}
+    \setcounter{page}{2} 
+}{
+    \include{chapters/0-title}
+}
+
 \include{chapters/1-contents}
 \include{chapters/2-introduction}
+
+\newpage
+\printbibliography[heading=bibintoc, title={Список литературы}]
 
 \end{document}
