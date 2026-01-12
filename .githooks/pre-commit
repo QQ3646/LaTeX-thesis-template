@@ -1,0 +1,18 @@
+#!/usr/bin/env sh
+
+STAGED_SOURCES=$(git diff --cached --name-only | grep -E '\.(tex|bib)$')
+
+if [ -z "$STAGED_SOURCES" ]; then
+    echo "--- No LaTeX changes. Skipping build. ---"
+    exit 0
+fi
+
+./scripts/build_final.sh
+
+if [ $? -eq 0 ]; then
+    git add main.pdf
+    echo "--- PDF updated in commit. ---"
+else
+    echo "--- COMMIT FAILED: Build error. ---"
+    exit 1
+fi

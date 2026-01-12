@@ -1,0 +1,66 @@
+% --- Языки и кодировки
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+
+% --- Математические ПАКЕТЫ (Логика и команды)
+\usepackage{amsmath}   % Нужен для окружений типа align, gather
+\usepackage{amsfonts}  % Нужен для ажурных букв типа \mathbb{R}
+\usepackage{amssymb}   % Нужен для дополнительных символов
+\usepackage{amsthm}    % Нужен для оформления теорем и доказательств
+
+% --- ШРИФТЫ (Внешний вид)
+\usepackage{tempora}            % Основной текст — Times New Roman (с кириллицей)
+\usepackage[libertine]{newtxmath} % Математика в стиле Times (совместим с amsmath)
+
+% --- Геометрия страницы (стандарт ГОСТ 2.105) ---
+\usepackage[left=30mm, right=10mm, top=20mm, bottom=20mm]{geometry}
+
+% --- Настройка интервалов ---
+\usepackage{setspace}
+\onehalfspacing{} % Полуторный интервал (обычно требуется в дипломах)
+\usepackage{indentfirst} % Абзацный отступ в первом параграфе секции
+
+% --- Оглавление ---
+\usepackage{tocloft}
+\renewcommand{\contentsname}{Содержание}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}} % Точки в оглавлении
+\setcounter{tocdepth}{4} 
+\setcounter{secnumdepth}{4}
+
+% --- Графика и таблицы ---
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{adjustbox}
+\usepackage[inkscapearea=page, inkscapeformat=png]{svg} 
+\usepackage{subcaption}
+
+% --- Код и алгоритмы ---
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{listings}
+\lstset{
+  language=Java,
+  basicstyle=\small\ttfamily,
+  breaklines=true,
+  frame=single
+}
+
+% --- Гиперссылки ---
+\usepackage[unicode, colorlinks=false, hidelinks]{hyperref}
+\usepackage[all]{hypcap}
+
+\newcounter{intvl} \setcounter{intvl}{3}
+\newcounter{otstup} \setcounter{otstup}{0}
+\newcounter{contnumeq} \setcounter{contnumeq}{0}
+\newcounter{contnumfig} \setcounter{contnumfig}{0}
+\newcounter{contnumtab} \setcounter{contnumtab}{1}
+\newcounter{pgnum} \setcounter{pgnum}{1}
+\newcounter{chapstyle} \setcounter{chapstyle}{1}
+\newcounter{headingdelim} \setcounter{headingdelim}{1}
+\newcounter{headingalign} \setcounter{headingalign}{0}
+\newcounter{headingsize} \setcounter{headingsize}{0}
+
+\AtBeginDocument{\DeclareCaptionSubType{lstlisting}}
